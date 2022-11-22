@@ -31,10 +31,10 @@ class JogadoresController {
 
   add(req: Request, res: Response) {
     let { index, nome } = req.query;
-    nome = nome?.toString();
     if (!nome) {
       return res.send(`O parâmetro nome é obrigatório!`);
     }
+    nome = nome?.toString();
     const formateName =
       nome[0].toLocaleUpperCase() + nome.substring(1).toLocaleLowerCase();
     const result = jogadoresServices.add(Number(index), formateName);
